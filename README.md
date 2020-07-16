@@ -1,0 +1,2 @@
+# SuperPong
+A hobby project
