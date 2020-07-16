@@ -1,0 +1,13 @@
+[gd_scene format=2]
+
+[node name="Start" type="Label"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -58.5
+margin_top = 295.834
+margin_right = 58.5
+margin_bottom = 324.834
+text = "Start"
+__meta__ = {
+"_edit_use_anchors_": false
+}
