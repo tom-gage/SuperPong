@@ -24,6 +24,10 @@ config/name="SuperPong"
 run/main_scene="res://src/Levels/Level0.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+ScoreData="*res://src/Autoload/ScoreData.tscn"
+
 [display]
 
 window/size/width=1080
@@ -47,8 +51,9 @@ paddle_down={
 
 [layer_names]
 
-2d_physics/layer_1="PaddleLayer"
-2d_physics/layer_2="BallLayer"
+2d_physics/layer_2="Paddle Layer"
+2d_physics/layer_3="Ball Layer"
+2d_physics/layer_4="Score Area Layer"
 
 [rendering]
 

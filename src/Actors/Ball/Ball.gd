@@ -4,8 +4,7 @@ var nearest_paddle_position = Vector2.ZERO
 
 func _ready() -> void:
 	speed_multiplier = 400
-	speed.x = -200
-	speed.y = rand_range(-300, 300)
+	speed.x = -350
 	speed.y = 0
 
 func _physics_process(delta: float) -> void:

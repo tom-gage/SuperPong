@@ -1,10 +1,13 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://src/Actors/Ball/Ball.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/Actors/Paddles/EnemyPaddle/EnemyPaddle.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/Actors/Paddles/PlayerPaddle/PlayerPaddle.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Assets/background.png" type="Texture" id=4]
 [ext_resource path="res://src/Levels/Level0.gd" type="Script" id=5]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 10, 360.595 )
 
 [node name="Level0" type="Node2D"]
 script = ExtResource( 5 )
@@ -20,10 +23,32 @@ __meta__ = {
 }
 
 [node name="PlayerPaddle" parent="." instance=ExtResource( 3 )]
-position = Vector2( 25.8472, 374.654 )
+position = Vector2( 25, 360 )
+collision_layer = 2
+collision_mask = 0
 
 [node name="EnemyPaddle" parent="." instance=ExtResource( 2 )]
-position = Vector2( 1050.21, 376.824 )
+position = Vector2( 1055, 360 )
+collision_layer = 2
+collision_mask = 0
 
 [node name="Ball" parent="." instance=ExtResource( 1 )]
-position = Vector2( 538.709, 387.707 )
+position = Vector2( 540, 360 )
+collision_layer = 4
+collision_mask = 0
+
+[node name="EnemyScoreArea" type="Area2D" parent="."]
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyScoreArea"]
+position = Vector2( 0, 363.5 )
+shape = SubResource( 1 )
+
+[node name="PlayerScoreArea" type="Area2D" parent="."]
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerScoreArea"]
+position = Vector2( 1096, 360 )
+shape = SubResource( 1 )
+[connection signal="area_entered" from="EnemyScoreArea" to="." method="_on_EnemyScoreArea_area_entered"]
+[connection signal="area_entered" from="PlayerScoreArea" to="." method="_on_PlayerScoreArea_area_entered"]
