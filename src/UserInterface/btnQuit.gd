@@ -1,4 +1,4 @@
-extends Control
+extends Button
 
 
 # Declare member variables here. Examples:
@@ -12,11 +12,9 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-	
-
-func drawSpeck() -> void:
-	pass
+#func _process(delta: float) -> void:
+#	pass
 
 
+func _on_btnQuit_button_up() -> void:
+	get_tree().quit()

@@ -18,6 +18,16 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="background" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1.29236
+margin_right = 1.29236
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="speck" type="Sprite" parent="."]
 position = Vector2( 199, 390.4 )
 texture = ExtResource( 7 )
@@ -38,19 +48,6 @@ position = Vector2( 199, 390.4 )
 texture = ExtResource( 7 )
 script = ExtResource( 8 )
 
-[node name="speck5" type="Sprite" parent="."]
-position = Vector2( 199, 390.4 )
-texture = ExtResource( 7 )
-script = ExtResource( 8 )
-
-[node name="background" type="TextureRect" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-texture = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="lblTitle" parent="." instance=ExtResource( 3 )]
 margin_left = -75.6475
 margin_top = 306.123
@@ -64,6 +61,7 @@ margin_top = 408.837
 margin_right = 541.729
 margin_bottom = 443.837
 text = "Start"
+next_scene_path = "res://src/Levels/Level0.tscn"
 
 [node name="btnQuit" parent="." instance=ExtResource( 5 )]
 margin_left = 484.956
