@@ -64,7 +64,6 @@ func _on_scoreArea_area_entered(area: Area2D) -> void:
 
 func reset_position()->void:
 	speed = Vector2.ZERO
-	speed_multiplier = 0
 	position = Vector2(540, 360)
 	print("PLAY STOPPED ball position reset")
 
@@ -76,7 +75,7 @@ func resume_play()->void:
 	else:
 		speed.x = -400
 	speed.y = 0
-	speed_multiplier = 400
+
 
 
 

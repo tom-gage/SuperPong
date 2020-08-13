@@ -13,3 +13,7 @@ func set_player_score(value: int)-> void:
 func set_enemy_score(value: int)-> void:
 	enemy_score = value 
 	emit_signal("enemy_score_updated", enemy_score) 
+
+func reset_scores()->void:
+	player_score = 0
+	enemy_score = 0
