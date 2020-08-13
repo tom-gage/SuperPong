@@ -1,12 +1,13 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://src/Actors/Ball/Ball.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/Actors/Paddles/EnemyPaddle/EnemyPaddle.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/Actors/Paddles/PlayerPaddle/PlayerPaddle.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Assets/background.png" type="Texture" id=4]
 [ext_resource path="res://src/Levels/Level0.gd" type="Script" id=5]
+[ext_resource path="res://src/UserInterface/PanelMenus/GameOverPanelMenu.tscn" type="PackedScene" id=6]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 10, 360.595 )
 
 [node name="Level0" type="Node2D"]
@@ -24,31 +25,57 @@ __meta__ = {
 
 [node name="PlayerPaddle" parent="." instance=ExtResource( 3 )]
 position = Vector2( 25, 360 )
+collision_layer = 0
+collision_mask = 0
+
+[node name="Area2D" parent="PlayerPaddle" index="2"]
 collision_layer = 2
 collision_mask = 0
 
 [node name="EnemyPaddle" parent="." instance=ExtResource( 2 )]
 position = Vector2( 1055, 360 )
+collision_layer = 0
+collision_mask = 0
+
+[node name="Area2D" parent="EnemyPaddle" index="2"]
 collision_layer = 2
 collision_mask = 0
 
 [node name="Ball" parent="." instance=ExtResource( 1 )]
-position = Vector2( 540, 360 )
-collision_layer = 4
+position = Vector2( 569, 360 )
+
+[node name="scoreArea" parent="Ball" index="3"]
+collision_layer = 8
 collision_mask = 0
 
 [node name="EnemyScoreArea" type="Area2D" parent="."]
-collision_mask = 4
+collision_layer = 0
+collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyScoreArea"]
-position = Vector2( 0, 363.5 )
-shape = SubResource( 1 )
+position = Vector2( -16, 360 )
+shape = SubResource( 4 )
 
 [node name="PlayerScoreArea" type="Area2D" parent="."]
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerScoreArea"]
 position = Vector2( 1096, 360 )
-shape = SubResource( 1 )
+shape = SubResource( 4 )
+
+[node name="GameOverPanelMenu" parent="." instance=ExtResource( 6 )]
+visible = false
+anchor_left = 1.0
+anchor_bottom = 0.0
+margin_left = 540.0
+margin_top = 360.0
+margin_right = 540.0
+margin_bottom = 360.0
 [connection signal="area_entered" from="EnemyScoreArea" to="." method="_on_EnemyScoreArea_area_entered"]
 [connection signal="area_entered" from="PlayerScoreArea" to="." method="_on_PlayerScoreArea_area_entered"]
+
+[editable path="PlayerPaddle"]
+
+[editable path="EnemyPaddle"]
+
+[editable path="Ball"]

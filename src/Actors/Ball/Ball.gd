@@ -10,10 +10,8 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	#if off-screen vertically, invert vertical movement
 	speed.y = - speed.y if position.y < 0 or position.y > 720 else speed.y
-
 	#calculate velocity
 	_velocity = calculate_velocity(speed, delta)
-	
 	#move
 	_velocity = move_and_slide(_velocity, FLOOR_NORMAL)
 
@@ -32,7 +30,7 @@ func calculate_bounce_angle(paddle_position: Vector2, ball_position: Vector2) ->
 	
 	#bounce angle is determined by the distance from the top of the paddle
 	var bounce_angle = (top_of_paddle.distance_to(ball_position) * 0.75) + 40
-	print("bounce angle: ", bounce_angle)
+	#print("bounce angle: ", bounce_angle)
 	#convert to radians
 	bounce_angle = deg2rad(bounce_angle)
 	#convert bounce angle to normalised vector
@@ -52,15 +50,33 @@ func calculate_bounce_angle(paddle_position: Vector2, ball_position: Vector2) ->
 	if(top_of_paddle.x > ball_position.x):
 		direction.x *= -1
 	
+	
 	return direction
 
 #on collision with paddle, bounce
 func _on_HitBox_area_entered(area: Area2D) -> void:
 	speed = calculate_bounce_angle(nearest_paddle_position, position)
 	speed *= speed_multiplier
+	print("ball collide")
 
+func _on_scoreArea_area_entered(area: Area2D) -> void:
+	pass
 
+func reset_position()->void:
+	speed = Vector2.ZERO
+	speed_multiplier = 0
+	position = Vector2(540, 360)
+	print("PLAY STOPPED ball position reset")
 
+func resume_play()->void:
+	print("PLAY RESUMED")
+	speed.x = rand_range(-10, 10)
+	if(speed.x > 0):
+		speed.x = 400
+	else:
+		speed.x = -400
+	speed.y = 0
+	speed_multiplier = 400
 
 
 
@@ -128,6 +144,9 @@ func _on_HitBox_area_entered(area: Area2D) -> void:
 #
 #
 #	return direction
+
+
+
 
 
 

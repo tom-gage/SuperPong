@@ -30,7 +30,5 @@ func calculate_move_velocity(
 		
 		return move_velocity
 
-
-
-func die()->void:
-	queue_free()
+func reset_position()->void:
+	position = Vector2(25, 360)

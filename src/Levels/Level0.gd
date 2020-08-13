@@ -30,25 +30,20 @@ func get_nearest_paddle(playerPaddle: Node, enemyPaddle: Node, ball: Node)-> Nod
 		return enemyPaddle
 
 func reset_play()->void:
-	playerPaddle.position = Vector2(25, 360)
-	enemyPaddle.position = Vector2(1055, 360)
-	ball.position = Vector2(540, 360)
-
-
-func draw_debug_lines(paddle_pos: Vector2, paddle_top: Vector2, ball_pos: Vector2) -> void:
-	draw_line(paddle_pos, paddle_top, ColorN("white"), 10, false)
-	draw_line(paddle_top, ball_pos, ColorN("white"), 10, false)
-	draw_line(ball_pos, paddle_pos, ColorN("white"), 10, false)
-	print("printed debug lines: ", paddle_pos, paddle_top, ball_pos)
-
+	ball.reset_position()
+	playerPaddle.reset_position()
+	enemyPaddle.reset_position()
+	
+	yield(get_tree().create_timer(1.0), "timeout")
+	ball.resume_play()
 
 func _on_EnemyScoreArea_area_entered(area: Area2D) -> void:
 	ScoreData.enemy_score += 1
-	print("enemy scored, current score is: ", ScoreData.player_score, " - ", ScoreData.enemy_score)
+	print("ENEMY SCORED, current score is: ", ScoreData.player_score, " - ", ScoreData.enemy_score)
 	reset_play()
 
 
 func _on_PlayerScoreArea_area_entered(area: Area2D) -> void:
 	ScoreData.player_score += 1
-	print("player scored, current score is: ", ScoreData.player_score, " - ", ScoreData.enemy_score)
+	print("PLAYER SCORED, current score is: ", ScoreData.player_score, " - ", ScoreData.enemy_score)
 	reset_play()
