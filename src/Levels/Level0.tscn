@@ -7,7 +7,7 @@
 [ext_resource path="res://src/Levels/Level0.gd" type="Script" id=5]
 [ext_resource path="res://src/UserInterface/PanelMenus/GameOverPanelMenu.tscn" type="PackedScene" id=6]
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 10, 360.595 )
 
 [node name="Level0" type="Node2D"]
@@ -54,14 +54,14 @@ collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyScoreArea"]
 position = Vector2( -16, 360 )
-shape = SubResource( 4 )
+shape = SubResource( 1 )
 
 [node name="PlayerScoreArea" type="Area2D" parent="."]
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerScoreArea"]
 position = Vector2( 1096, 360 )
-shape = SubResource( 4 )
+shape = SubResource( 1 )
 
 [node name="GameOverPanelMenu" parent="." instance=ExtResource( 6 )]
 visible = false

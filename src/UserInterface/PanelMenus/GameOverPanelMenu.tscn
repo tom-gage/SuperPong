@@ -1,12 +1,33 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://src/UserInterface/btnQuit.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/MenuPanel.png" type="Texture" id=2]
 [ext_resource path="res://src/UserInterface/btnStart.gd" type="Script" id=3]
 
+[sub_resource type="GDScript" id=1]
+script/source = "extends Control
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass
+
+func player_wins() -> void:
+	$lblTitle.text = \"You Win!\"
+	update_scores_display()
+
+func enemy_wins() -> void:
+	$lblTitle.text = \"You lose!\"
+	update_scores_display()
+
+func update_scores_display() -> void:
+	$lblScores.text = \"%s - %s\" % [ScoreData.player_score, ScoreData.enemy_score]
+"
+
 [node name="GameOverPanelMenu" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
