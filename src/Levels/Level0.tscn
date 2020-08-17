@@ -57,7 +57,8 @@ position = Vector2( -16, 360 )
 shape = SubResource( 1 )
 
 [node name="PlayerScoreArea" type="Area2D" parent="."]
-collision_mask = 0
+collision_layer = 0
+collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerScoreArea"]
 position = Vector2( 1096, 360 )
