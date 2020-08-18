@@ -1,2 +1,4 @@
 # SuperPong
-A hobby project
+A hobby project, not all that super
+
+yet
