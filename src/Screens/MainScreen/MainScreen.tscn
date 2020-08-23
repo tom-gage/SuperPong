@@ -61,7 +61,7 @@ margin_top = 408.837
 margin_right = 541.729
 margin_bottom = 443.837
 text = "Start"
-next_scene_path = "res://src/Levels/Level0.tscn"
+next_scene_path = "res://src/Screens/SelectDifficultyScreen/SelectDifficultyScreen.tscn"
 
 [node name="btnQuit" parent="." instance=ExtResource( 5 )]
 margin_left = 484.956

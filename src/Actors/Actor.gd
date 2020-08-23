@@ -3,8 +3,9 @@ class_name Actor
 
 const FLOOR_NORMAL: = Vector2.UP
 
-export var speed = Vector2(0, 0)
-export var speed_multiplier = 1
-
+export var max_speed = Vector2.ZERO
 var _velocity: = Vector2.ZERO
 
+
+func reset_position()->void:
+	pass

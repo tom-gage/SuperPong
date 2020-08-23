@@ -9,13 +9,43 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Node",
+"class": "AI",
+"language": "GDScript",
+"path": "res://src/Actors/Paddles/EnemyPaddle/AIs/AI.gd"
+}, {
 "base": "KinematicBody2D",
 "class": "Actor",
 "language": "GDScript",
 "path": "res://src/Actors/Actor.gd"
+}, {
+"base": "AI",
+"class": "EasyAI",
+"language": "GDScript",
+"path": "res://src/Actors/Paddles/EnemyPaddle/AIs/EasyAI.gd"
+}, {
+"base": "AI",
+"class": "HardAI",
+"language": "GDScript",
+"path": "res://src/Actors/Paddles/EnemyPaddle/AIs/HardAI.gd"
+}, {
+"base": "AI",
+"class": "MediumAI",
+"language": "GDScript",
+"path": "res://src/Actors/Paddles/EnemyPaddle/AIs/MediumAI.gd"
+}, {
+"base": "Actor",
+"class": "Paddle",
+"language": "GDScript",
+"path": "res://src/Actors/Paddles/Paddle.gd"
 } ]
 _global_script_class_icons={
-"Actor": ""
+"AI": "",
+"Actor": "",
+"EasyAI": "",
+"HardAI": "",
+"MediumAI": "",
+"Paddle": ""
 }
 
 [application]
@@ -27,6 +57,7 @@ config/icon="res://icon.png"
 [autoload]
 
 ScoreData="*res://src/Autoload/ScoreData.tscn"
+Settings="*res://src/Autoload/Settings.tscn"
 
 [display]
 

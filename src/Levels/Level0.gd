@@ -12,33 +12,25 @@ func _ready() -> void:
 	ball.resume_play()
 
 func _process(delta: float) -> void:
-#	ball = get_node("Ball")
-#	enemyPaddle = get_node("EnemyPaddle")
-#	playerPaddle = get_node("PlayerPaddle")
-	
-	enemyPaddle.get_ball_position(ball.position)
-	
-	var nearest_paddle = get_nearest_paddle(playerPaddle, enemyPaddle, ball)
-	
-	#print(nearest_paddle.position)
-	ball.get_nearest_paddle_position(nearest_paddle.position)
-	
+#	these update some values the children need to make decisions 
+	enemyPaddle.ball_position = ball.position
+	ball.nearest_paddle_position = get_nearest_paddle(playerPaddle, enemyPaddle, ball).position
 
 func get_nearest_paddle(playerPaddle: Node, enemyPaddle: Node, ball: Node)-> Node:
-	var plr_pad_distance = playerPaddle.position.x - ball.position.x
-	var enm_pad_distance = ball.position.x - enemyPaddle.position.x
+	var plr_pad_distance = get_difference_between(playerPaddle.position.x, ball.position.x)
+	var enm_pad_distance = get_difference_between(enemyPaddle.position.x, ball.position.x)
 	
-	if(plr_pad_distance > enm_pad_distance):
-		#print("player nearest")
+	if(plr_pad_distance < enm_pad_distance):
+#		print("player nearest")
 		return playerPaddle
 	else:
-		#print("enemy nearest")
+#		print("enemy nearest")
 		return enemyPaddle
 
 
 func _on_EnemyScoreArea_area_entered(area: Area2D) -> void:
 	ScoreData.enemy_score += 1
-	print("ENEMY SCORED, current score is: ", ScoreData.player_score, " - ", ScoreData.enemy_score)
+	#print("ENEMY SCORED, current score is: ", ScoreData.player_score, " - ", ScoreData.enemy_score)
 	reset_play()
 	if(ScoreData.enemy_score >= score_to_win):
 		game_over()
@@ -46,7 +38,7 @@ func _on_EnemyScoreArea_area_entered(area: Area2D) -> void:
 
 func _on_PlayerScoreArea_area_entered(area: Area2D) -> void:
 	ScoreData.player_score += 1
-	print("PLAYER SCORED, current score is: ", ScoreData.player_score, " - ", ScoreData.enemy_score)
+	#print("PLAYER SCORED, current score is: ", ScoreData.player_score, " - ", ScoreData.enemy_score)
 	reset_play()
 	if(ScoreData.player_score >= score_to_win):
 		game_over()
@@ -70,3 +62,9 @@ func game_over()->void:
 	gameover_panel.visible = true
 	
 	ScoreData.reset_scores()
+
+func get_difference_between(a:int, b:int)->int:
+	if(a > b):
+		return a - b
+	else:
+		return b - a
