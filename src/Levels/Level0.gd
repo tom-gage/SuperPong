@@ -31,6 +31,7 @@ func get_nearest_paddle(playerPaddle: Node, enemyPaddle: Node, ball: Node)-> Nod
 func _on_EnemyScoreArea_area_entered(area: Area2D) -> void:
 	ScoreData.enemy_score += 1
 	#print("ENEMY SCORED, current score is: ", ScoreData.player_score, " - ", ScoreData.enemy_score)
+	$ScoreDisplay.update_enemy_score_panels(ScoreData.enemy_score)
 	reset_play()
 	if(ScoreData.enemy_score >= score_to_win):
 		game_over()
@@ -38,6 +39,7 @@ func _on_EnemyScoreArea_area_entered(area: Area2D) -> void:
 
 func _on_PlayerScoreArea_area_entered(area: Area2D) -> void:
 	ScoreData.player_score += 1
+	$ScoreDisplay.update_player_score_panels(ScoreData.player_score)
 	#print("PLAYER SCORED, current score is: ", ScoreData.player_score, " - ", ScoreData.enemy_score)
 	reset_play()
 	if(ScoreData.player_score >= score_to_win):
