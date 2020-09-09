@@ -95,9 +95,11 @@ texture = ExtResource( 2 )
 
 [node name="three" type="TextureRect" parent="."]
 visible = false
-margin_left = 420.0
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -120.0
 margin_top = 28.0
-margin_right = 520.0
+margin_right = -20.0
 margin_bottom = 128.0
 texture = ExtResource( 12 )
 
@@ -113,9 +115,11 @@ texture = ExtResource( 12 )
 
 [node name="four" type="TextureRect" parent="."]
 visible = false
-margin_left = 420.0
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -120.0
 margin_top = 28.0
-margin_right = 520.0
+margin_right = -20.0
 margin_bottom = 128.0
 texture = ExtResource( 11 )
 
@@ -131,9 +135,11 @@ texture = ExtResource( 11 )
 
 [node name="five" type="TextureRect" parent="."]
 visible = false
-margin_left = 420.0
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -120.0
 margin_top = 28.0
-margin_right = 520.0
+margin_right = -20.0
 margin_bottom = 128.0
 texture = ExtResource( 10 )
 
@@ -149,9 +155,11 @@ texture = ExtResource( 10 )
 
 [node name="six" type="TextureRect" parent="."]
 visible = false
-margin_left = 420.0
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -120.0
 margin_top = 28.0
-margin_right = 520.0
+margin_right = -20.0
 margin_bottom = 128.0
 texture = ExtResource( 13 )
 
@@ -167,9 +175,11 @@ texture = ExtResource( 13 )
 
 [node name="seven" type="TextureRect" parent="."]
 visible = false
-margin_left = 420.0
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -120.0
 margin_top = 28.0
-margin_right = 520.0
+margin_right = -20.0
 margin_bottom = 128.0
 texture = ExtResource( 9 )
 
@@ -185,9 +195,11 @@ texture = ExtResource( 9 )
 
 [node name="eight" type="TextureRect" parent="."]
 visible = false
-margin_left = 420.0
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -120.0
 margin_top = 28.0
-margin_right = 520.0
+margin_right = -20.0
 margin_bottom = 128.0
 texture = ExtResource( 5 )
 
@@ -203,9 +215,11 @@ texture = ExtResource( 5 )
 
 [node name="nine" type="TextureRect" parent="."]
 visible = false
-margin_left = 420.0
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -120.0
 margin_top = 28.0
-margin_right = 520.0
+margin_right = -20.0
 margin_bottom = 128.0
 texture = ExtResource( 7 )
 
@@ -221,9 +235,11 @@ texture = ExtResource( 7 )
 
 [node name="ten" type="TextureRect" parent="."]
 visible = false
-margin_left = 420.0
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -120.0
 margin_top = 28.0
-margin_right = 520.0
+margin_right = -20.0
 margin_bottom = 128.0
 texture = ExtResource( 8 )
 
@@ -239,9 +255,11 @@ texture = ExtResource( 8 )
 
 [node name="eleven" type="TextureRect" parent="."]
 visible = false
-margin_left = 420.0
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -120.0
 margin_top = 28.0
-margin_right = 520.0
+margin_right = -20.0
 margin_bottom = 128.0
 texture = ExtResource( 6 )
 

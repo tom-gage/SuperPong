@@ -73,11 +73,8 @@ margin_right = 536.5
 margin_bottom = 360.0
 
 [node name="ScoreDisplay" parent="." instance=ExtResource( 7 )]
-anchor_left = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.0
-margin_left = 544.0
-margin_right = 544.0
+margin_left = 569.0
+margin_right = 569.0
 [connection signal="area_entered" from="EnemyScoreArea" to="." method="_on_EnemyScoreArea_area_entered"]
 [connection signal="area_entered" from="PlayerScoreArea" to="." method="_on_PlayerScoreArea_area_entered"]
 

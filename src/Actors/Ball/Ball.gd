@@ -1,10 +1,23 @@
 extends Actor
 
 var nearest_paddle_position = Vector2.ZERO
+var default_speed = 400
 var speed_multiplier = 0
 
+var ball_speed_increment_value = 0
+
 func _ready() -> void:
-	speed_multiplier = 400
+	match Settings.difficulty_setting:
+		1:
+			ball_speed_increment_value = 25
+		2: 
+			ball_speed_increment_value = 30
+		3:
+			ball_speed_increment_value = 55
+		_:
+			pass
+	
+	speed_multiplier = default_speed
 	_velocity.x = -350
 	_velocity.y = 0
 
@@ -16,7 +29,7 @@ func _physics_process(delta: float) -> void:
 	#move
 	_velocity = move_and_slide(_velocity, FLOOR_NORMAL)
 
-#velocity goes in, velocity comes out
+#velocity goes in, velocity comes out, don't ask
 func calculate_velocity(_velocity: Vector2, delta: float)->Vector2:
 	_velocity.x = _velocity.x + delta
 	_velocity.y = _velocity.y + delta
@@ -26,6 +39,7 @@ func calculate_velocity(_velocity: Vector2, delta: float)->Vector2:
 func _on_HitBox_area_entered(area: Area2D) -> void:
 	_velocity = calculate_bounce_angle(nearest_paddle_position, position)
 	_velocity *= speed_multiplier
+	speed_multiplier += ball_speed_increment_value
 #	print("ball collide")
 
 #cancel movement, move to the centre of the screen
@@ -37,11 +51,12 @@ func reset_position()->void:
 #pick left or right, move in that direction
 func resume_play()->void:
 #	print("PLAY RESUMED")
+	speed_multiplier = default_speed
 	_velocity.x = rand_range(-10, 10)
 	if(_velocity.x > 0):
-		_velocity.x = 400
+		_velocity.x = default_speed
 	else:
-		_velocity.x = -400
+		_velocity.x = -default_speed
 	_velocity.y = 0
 
 
